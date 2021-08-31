@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <div>
+      <img width="150" src="http://localhost:1111/cat.png">
+      <img width="150" src="http://localhost:1111/nocache.png">
+      <button onclick="toggle()">click</button>
+    </div>
+    <div id="hogeBlock"></div>
+    </div>
+  </body>
+  <script>
+    let flg = false
+    function toggle () {
+      flg = !flg
+      document.querySelector('#hogeBlock').innerHTML = flg ? '' : `
+        <iframe srcdoc='
+          <img width="150" src="http://localhost:1111/cat.png">
+          <img width="150" src="http://localhost:1111/nocache.png">
+      '></iframe>
+      `
+    }
+  </script>
+</html>
